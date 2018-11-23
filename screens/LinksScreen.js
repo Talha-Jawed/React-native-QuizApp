@@ -8,6 +8,8 @@ export default class LinksScreen extends React.Component {
   constructor() {
     super()
     this.state = {
+      select:[],
+      
       quizz: [
         {
           question: "What does HTML stand for?",
@@ -34,8 +36,10 @@ export default class LinksScreen extends React.Component {
   };
 
   render() {
-    const { quizz , selected } = this.state
-    console.log(selected ,'*******');
+    const { quizz , select ,tick} = this.state
+    console.log(select ,'*******');
+    const ans = quizz
+    console.log(ans.ans , 'ans***');
     
     return (
       <ScrollView style={styles.container}>
@@ -74,13 +78,11 @@ export default class LinksScreen extends React.Component {
 
           {
             quizz.map((item) => {
-              console.log(item.question, 'item');
               return (
-                // this.StartQuiz(item.ans, item.question, item.options[0], item.options[1], item.options[2])
-                <View>
+               <View>
                   <Text>{item.question}</Text>
                   <CheckboxGroup
-                    callback={(selected) =>this.setState({selected}) }
+                    callback={(value) =>this.setState({select:value}) }
                     iconColor={"#00a2dd"}
                     iconSize={30}
                     checkedIcon="ios-checkbox-outline"
