@@ -26,9 +26,10 @@ export default class CameraExample extends React.Component {
       console.log(result);
       if (result.faces.length > 0) {
         console.log("Match found");
-
+        this.props.navigation.navigate("Quiz")
 
       } else {
+        alert('Face Not found')
         console.log('Not Found');
 
       }
